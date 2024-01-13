@@ -3,7 +3,7 @@ return {
     Clear("black")
 	  local Mex=10
 	  local Mey=10
-	  for n,v in pairs(Things) do
+	  for n,v in pairs(base.Things) do
   		v.draw()
 	  end
   end,
@@ -12,8 +12,8 @@ return {
 		  ["x"]=10,
 		  ["y"]=10,
 		  ["draw"]=(function()
-		  	local Mex=Things.Me.x
-			  local Mey=Things.Me.y
+		  	local Mex=base.Things.Me.x
+			  local Mey=base.Things.Me.y
 			  Rectangle(Mex, Mey, 2, 6, "white", 1)
 			  Pixel(Mex-1, Mey+2, "white")
 			  Pixel(Mex+3, Mey+2, "white")
