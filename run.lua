@@ -76,11 +76,11 @@ function Line(sx,sy,ex,ey,color)
   end
 end
 
-main = require("main")
+base = require("main")
 
 os.execute("stty -icanon")
 repeat
-  main.Main()
+  base.Main()
   buffer:draw_to_framebuffer(fb, 0, 0)
   local KEY=io.read(1)
 until "q"==KEY
