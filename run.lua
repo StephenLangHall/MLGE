@@ -76,32 +76,11 @@ function Line(sx,sy,ex,ey,color)
   end
 end
 
-Things={
-	["Me"]={
-		["x"]=10,
-		["y"]=10,
-		["draw"]=(function()
-			local Mex=Things.Me.x
-			local Mey=Things.Me.y
-			Rectangle(Mex, Mey, 2, 6, "white", 1)
-			Pixel(Mex-1, Mey+2, "white")
-			Pixel(Mex+3, Mey+2, "white")
-			Pixel(Mex,   Mey+1, "green")
-			Pixel(Mex+2, Mey+1, "green")
-			Pixel(Mex,   Mey+7, "white")
-			Pixel(Mex+2, Mey+7, "white")
-		end),
-	}
-}
+main = require("main")
 
 os.execute("stty -icanon")
 repeat
-  Clear("black")
-	local Mex=10
-	local Mey=10
-	for n,v in pairs(Things) do
-		v.draw()
-	end
+  main.Main()
   buffer:draw_to_framebuffer(fb, 0, 0)
   local KEY=io.read(1)
 until "q"==KEY
